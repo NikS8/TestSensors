@@ -4,16 +4,6 @@
 void serialLoop() {
 
   if (Serial.available() > 0) {
-    Serial.println("Старт тестирования");
-    Serial.println();
-    Serial.println("В мониторе надо выставить NL" );
-    Serial.println();
-    Serial.println("Если команда i2c, то запускается I2C Scanner");
-    Serial.println("Если команда ds18, то запускается ds18 Scanner");
-    Serial.println();
-    Serial.println();
-    Serial.println();
-    Serial.println();
 
     String commandin = "";
     char charcom;

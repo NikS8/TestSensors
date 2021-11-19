@@ -60,6 +60,7 @@ void setup() {
   currentSetup();
   servo996rSetup();
   relayModuleSetup();
+  serialLoopSetup();
 
   delay (2000);
   httpServerSetup();

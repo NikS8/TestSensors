@@ -7,6 +7,9 @@ void serialLoop() {
 
     String commandin = "";
     char charcom;
+
+    delay(444);
+
     while (Serial.available()) {
       charcom = Serial.read();
       commandin.concat(charcom);
@@ -19,7 +22,7 @@ void serialLoop() {
       Serial.println(commandin);
       Serial.println("i2c_scanner");
       i2c_scanner();
-      return;
+    
     }
 
     if (commandin == "ds18\n") {
@@ -27,8 +30,9 @@ void serialLoop() {
       Serial.println(commandin);
       Serial.println("dsMultiBus_scanner");
       dsMultiBus_scanner();
-      return;
+    
     }
+  menuTest();
 
   }
 }

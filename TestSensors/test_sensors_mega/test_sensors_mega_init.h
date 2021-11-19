@@ -119,6 +119,11 @@ uint32_t sensorPulseLastTimeBoiler;
 uint32_t sensorPulseLastTimeTA;
 
 //  Блок Servo996R  -----------------------------------------------------------
+int PIN_SERVO;    //  test
+int servoPin4;
+int servoPin5;
+Servo myservo;  // create servo object to control a servo
+
 #define PIN_SERVO_IN 4
 Servo servo996in;
 #define PIN_SERVO_OUT 5

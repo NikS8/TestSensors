@@ -109,13 +109,13 @@ int taLevelWater;
 
 //  Блок flow YF-B5  ----------------------------------------------------------
 
-#define PIN_INTERRUPT_YFB5_BOILER 2
+#define PIN_INTERRUPT_YFB5_BT 2
 #define PIN_INTERRUPT_YFB5_TA 3
 
-volatile long sensorPulseCountBoiler = 0;
+volatile long sensorPulseCountBT = 0;
 volatile long sensorPulseCountTA = 0;
 
-uint32_t sensorPulseLastTimeBoiler;
+uint32_t sensorPulseLastTimeBT;
 uint32_t sensorPulseLastTimeTA;
 
 //  Блок Servo996R  -----------------------------------------------------------

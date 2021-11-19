@@ -110,8 +110,8 @@ String createDataString() {
   }
 //  yf-b5
   resultData.concat(F(","));
-  resultData.concat(F("\n\"bd-flow-Boiler\":"));
-  resultData.concat(String(getFlowDataBoiler()));
+  resultData.concat(F("\n\"bd-flow-BT\":"));
+  resultData.concat(String(getFlowDataBT()));
   resultData.concat(F(","));
   resultData.concat(F("\n\"bd-flow-TA\":"));
   resultData.concat(String(getFlowDataTA()));

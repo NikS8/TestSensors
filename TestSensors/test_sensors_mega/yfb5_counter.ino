@@ -4,13 +4,13 @@
 void yfb5PulseCounterTA() {
   
   // Increment the pulse counter
-  yfb5PulseCountTA++;
+  sensorPulseCountTA++;
 }
 
-void yfb5PulseCounterBoiler() {
+void yfb5PulseCounterBT() {
   
   // Increment the pulse counter
-  yfb5PulseCountBoiler++;
+  sensorPulseCountBT++;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

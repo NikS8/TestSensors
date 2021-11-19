@@ -31,6 +31,18 @@ void serialLoop() {
       dsMultiBus_scanner();
     }
 
+    if (commandin == "yfb5Pin2\n") {
+      Serial.print(" command  = ");
+      Serial.println(commandin);
+      getFlowDataBT();
+    }
+    
+    if (commandin == "yfb5Pin3\n") {
+      Serial.print(" command  = ");
+      Serial.println(commandin);
+      getFlowDataTA();
+    }
+
     if (commandin == "servoPin4\n") {
       Serial.print(" command  = ");
       Serial.println(commandin);

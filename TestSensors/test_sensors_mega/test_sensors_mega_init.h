@@ -41,15 +41,14 @@ uint8_t ds18DeviceCountHP;
 RBD::Timer ds18ConversionTimer;
 
 //  Блок flow YF-B5  ----------------------------------------------------------
-#define PIN_YFB5_IN_BOILER 2
+#define PIN_YFB5_IN_BT 2
 #define PIN_YFB5_IN_TA 3
 #define PIN_INTERRUPT_YFB5 0
 #define YFB5_CALIBRATION_FACTOR 5
-//byte yfb5Interrupt = 0; // 0 = digital pin 2
 volatile long yfb5PulseCountTA = 0;
-volatile long yfb5PulseCountBoiler = 0;
+volatile long yfb5PulseCountBT = 0;
 unsigned long yfb5LastTimeTA;
-unsigned long yfb5LastTimeBoiler;
+unsigned long yfb5LastTimeBT;
 
 //  Блок pressure  ------------------------------------------------------------
 #define PIN_SENSOR_PRESSURE A15
@@ -106,17 +105,6 @@ EnergyMonitor emon7;
 #define PIN_ECHO 23
 HCSR04 hcsr04(PIN_TRIG, PIN_ECHO, 30, 4000); // пределы: от и до
 int taLevelWater;
-
-//  Блок flow YF-B5  ----------------------------------------------------------
-
-#define PIN_INTERRUPT_YFB5_BT 2
-#define PIN_INTERRUPT_YFB5_TA 3
-
-volatile long sensorPulseCountBT = 0;
-volatile long sensorPulseCountTA = 0;
-
-uint32_t sensorPulseLastTimeBT;
-uint32_t sensorPulseLastTimeTA;
 
 //  Блок Servo996R  -----------------------------------------------------------
 int PIN_SERVO;    //  test

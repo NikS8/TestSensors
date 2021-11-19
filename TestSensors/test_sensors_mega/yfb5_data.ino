@@ -4,14 +4,14 @@
 int getFlowDataBT() {
 
   unsigned long flowSensorPulsesPerSecondBT;
-  unsigned long deltaTime = millis() - sensorPulseLastTimeBT;
+  unsigned long deltaTime = millis() - yfb5LastTimeBT;
 
   if (deltaTime < 15000)  {
     return;
   }
-  flowSensorPulsesPerSecondBT = sensorPulseCountBT * 15000 / deltaTime;
-  sensorPulseLastTimeBT = millis();
-  sensorPulseCountBT = 0;
+  flowSensorPulsesPerSecondBT = yfb5LastTimeBT * 15000 / deltaTime;
+  yfb5LastTimeBT = millis();
+  yfb5PulseCountBT = 0;
 
 Serial.print(" YF-B5 pin2 к-во импульсов за 15сек = ");
 Serial.print(flowSensorPulsesPerSecondBT);
@@ -22,14 +22,14 @@ Serial.print(flowSensorPulsesPerSecondBT);
   int getFlowDataTA()
   {
   unsigned long flowSensorPulsesPerSecondTA;
-  unsigned long deltaTime = millis() - sensorPulseLastTimeTA;
+  unsigned long deltaTime = millis() - yfb5LastTimeTA;
 
   if (deltaTime < 15000)  { 
     return; 
     }
-  flowSensorPulsesPerSecondTA = sensorPulseCountTA * 15000 / deltaTime;
-  sensorPulseLastTimeTA = millis();
-  sensorPulseCountTA = 0;
+  flowSensorPulsesPerSecondTA = yfb5LastTimeTA * 15000 / deltaTime;
+  yfb5LastTimeTA = millis();
+  yfb5PulseCountTA = 0;
 
 Serial.print(" YF-B5 pin3 к-во импульсов за 15сек = ");
 Serial.print(flowSensorPulsesPerSecondTA);

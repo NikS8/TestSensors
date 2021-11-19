@@ -1,0 +1,7 @@
+{
+    "port": "/dev/cu.usbmodem141401",
+    "configuration": "cpu=atmega2560",
+    "board": "arduino:avr:mega",
+    "programmer": "arduino:arduinoisporg",
+    "sketch": "TestSensors/test_sensors_mega/test_sensors_mega.ino"
+}

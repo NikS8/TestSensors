@@ -1,3 +1,6 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
+            dsMultiBus scanner
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void dsMultiBus_scanner() {
 Serial.println("Dallas Temperature Multiple Bus Control Library Simple Demo");
@@ -36,3 +39,5 @@ Serial.println("Dallas Temperature Multiple Bus Control Library Simple Demo");
   }
   Serial.println();
 }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

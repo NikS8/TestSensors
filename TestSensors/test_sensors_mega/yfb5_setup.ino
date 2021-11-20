@@ -3,12 +3,13 @@
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 void yfb5InterruptSetup() {
 
-  pinMode(PIN_INTERRUPT_YFB5_BOILER, INPUT);
-  //digitalWrite(PIN_INTERRUPT_YFB5_BOILER, HIGH);
-  enableInterrupt(PIN_INTERRUPT_YFB5_BOILER, yfb5PulseCounterBoiler, FALLING);
-  pinMode(PIN_INTERRUPT_YFB5_TA, INPUT);
-  //digitalWrite(PIN_INTERRUPT_YFB5_TA, HIGH);
-  enableInterrupt(PIN_INTERRUPT_YFB5_TA, yfb5PulseCounterTA, FALLING);
+  pinMode(PIN_YFB5_IN_BT, INPUT);
+  //digitalWrite(PIN_YFB5_IN_BT, HIGH);
+  enableInterrupt(PIN_YFB5_IN_BT, yfb5PulseCounterBT, FALLING);
+
+  pinMode(PIN_YFB5_IN_TA, INPUT);
+  //digitalWrite(PIN_YFB5_IN_TA, HIGH);
+  enableInterrupt(PIN_YFB5_IN_TA, yfb5PulseCounterTA, FALLING);
   
   sei();
 

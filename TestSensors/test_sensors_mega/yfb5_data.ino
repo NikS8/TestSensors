@@ -1,32 +1,32 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
             function to measurement flow water
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-int getFlowDataBoiler() {
+int getFlowDataBT() {
 
-  unsigned long flowSensorPulsesPerSecondBoiler;
-  unsigned long deltaTime = millis() - sensorPulseLastTimeBoiler;
+  unsigned long flowSensorPulsesPerSecondBT;
+  unsigned long deltaTime = millis() - yfb5LastTimeBT;
 
   if (deltaTime < 15000)  {
     return;
   }
-  flowSensorPulsesPerSecondBoiler = sensorPulseCountBoiler * 15000 / deltaTime;
-  sensorPulseLastTimeBoiler = millis();
-  sensorPulseCountBoiler = 0;
+  flowSensorPulsesPerSecondBT = yfb5PulseCountBT * 15000 / deltaTime;
+  yfb5LastTimeBT = millis();
+  yfb5PulseCountBT = 0;
 
-  return flowSensorPulsesPerSecondBoiler;
+  return flowSensorPulsesPerSecondBT;
 }
 
   int getFlowDataTA()
   {
   unsigned long flowSensorPulsesPerSecondTA;
-  unsigned long deltaTime = millis() - sensorPulseLastTimeTA;
+  unsigned long deltaTime = millis() - yfb5LastTimeTA;
 
   if (deltaTime < 15000)  { 
     return; 
     }
-  flowSensorPulsesPerSecondTA = sensorPulseCountTA * 15000 / deltaTime;
-  sensorPulseLastTimeTA = millis();
-  sensorPulseCountTA = 0;
+  flowSensorPulsesPerSecondTA = yfb5PulseCountTA * 15000 / deltaTime;
+  yfb5LastTimeTA = millis();
+  yfb5PulseCountTA = 0;
 
   return flowSensorPulsesPerSecondTA;
   }

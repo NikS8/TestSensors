@@ -7,10 +7,10 @@ void yfb5PulseCounterTA() {
   yfb5PulseCountTA++;
 }
 
-void yfb5PulseCounterBoiler() {
+void yfb5PulseCounterBT() {
   
   // Increment the pulse counter
-  yfb5PulseCountBoiler++;
+  yfb5PulseCountBT++;
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

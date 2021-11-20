@@ -69,6 +69,12 @@ void serialLoop() {
       servoLeft();
     }
 
+    if (commandin == "relay\n") {
+      Serial.print(" command  = ");
+      Serial.println(commandin);
+      relay();
+    }
+
   menuTest();
 
   }

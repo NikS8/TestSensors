@@ -14,7 +14,7 @@ int getFlowDataBT() {
   yfb5PulseCountBT = 0;
 
 Serial.print(" YF-B5 pin2 к-во импульсов за 15сек = ");
-Serial.print(flowSensorPulsesPerSecondBT);
+Serial.println(flowSensorPulsesPerSecondBT);
 
   return flowSensorPulsesPerSecondBT;
 }
@@ -32,7 +32,7 @@ Serial.print(flowSensorPulsesPerSecondBT);
   yfb5PulseCountTA = 0;
 
 Serial.print(" YF-B5 pin3 к-во импульсов за 15сек = ");
-Serial.print(flowSensorPulsesPerSecondTA);
+Serial.println(flowSensorPulsesPerSecondTA);
 
   return flowSensorPulsesPerSecondTA;
   }

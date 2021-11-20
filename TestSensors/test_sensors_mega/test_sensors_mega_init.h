@@ -117,4 +117,21 @@ Servo servo996out;
 #define RESET_UPTIME_TIME 43200000  //  = 30 * 24 * 60 * 60 * 1000 
 // reset after 30 days uptime
 
+//	Блок Тест  ----------------------------------------------------------------
+// строки текстовых команд
+String menuCommands_s = "menuCommands";
+String getpinRelay_s = "get_i2c";
+String getpinRelay_s = "get_ds18";
+String getpinRelay_s = "set_pinServo";
+String getpinRelay_s = "set_pinYFB5";
+String setpinRelay_s = "set_pinRelay";
+String getValue_s = "get_value";
+String setValue_s = "set_value";
+
+// переменные
+int pinServo = 4;
+int pinYFB5 = 2;
+int pinRelay = 24;
+int value = 0;
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

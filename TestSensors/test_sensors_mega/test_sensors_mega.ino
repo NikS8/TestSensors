@@ -61,7 +61,7 @@ void setup() {
   servo996rSetup();
   relayModuleSetup();
 
-  menuTest();
+  menuCommands();
 
   delay (2000);
   httpServerSetup();

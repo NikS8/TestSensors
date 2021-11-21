@@ -119,9 +119,10 @@ Servo servo996out;
 
 //	Блок Тест  ----------------------------------------------------------------
 // строки текстовых команд
-String menuCommands_s = "menuCommands";
-String i2c_start_s = "i2c_start";
-String ds18_start_s = "ds18_start";
+String testMenuCommands_s = "testMenuCommands";
+String i2c_s = "i2c";
+String ds18_s = "ds18";
+String hcsr04_s = "hcsr04";
 String setpinServo_s = "set_pinServo";
 String setpinYFB5_s = "set_pinYFB5";
 String setpinRelay_s = "set_pinRelay";
@@ -129,6 +130,7 @@ String getValue_s = "get_value";
 String setValue_s = "set_value";
 
 // переменные
+int valhcsr04;
 int valI2C;
 int valDS18;
 int pinServo = 4;

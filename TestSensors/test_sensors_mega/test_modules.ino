@@ -12,18 +12,18 @@ void testModules() {
     // строка обрезается командой substring до длины команды .substring(команда.length())
     // оставшееся число преобразуется в число командой .toInt()
     
-    if (buf.startsWith(menuCommands_s)) {
-      menuCommands();
+    if (buf.startsWith(testMenuCommands_s)) {
+      testMenuCommands();
     }
 
-    else if (buf.startsWith(i2c_start_s)) {
-      valI2C = buf.substring(i2c_start_s.length()).toInt();
+    else if (buf.startsWith(i2c_s)) {
+      valI2C = buf.substring(i2c_s.length()).toInt();
       Serial.print("i2c_start ");
       test_i2cScaner();
     }
     
-    else if (buf.startsWith(ds18_start_s)) {
-      valDS18 = buf.substring(i2c_start_s.length()).toInt();
+    else if (buf.startsWith(ds18_s)) {
+      valDS18 = buf.substring(ds18_s.length()).toInt();
       Serial.print("ds18_start ");
       test_ds18Scaner();
     }
@@ -60,7 +60,7 @@ void testModules() {
     else if (buf.startsWith(setpinRelay_s)) {
       pinRelay = buf.substring(setpinRelay_s.length()).toInt();
       Serial.print("pinRelay set to ");
-      Serial.println(pinRelay);
+      Serial.print(pinRelay);
       Serial.print("   is ");
       Serial.println(value);
 
@@ -70,7 +70,14 @@ void testModules() {
       }
       digitalWrite(pinRelay, HIGH);  
       }    
-
+//
+    else if (buf.startsWith(hcsr04_s)) {
+      valhcsr04 = buf.substring(hcsr04_s.length()).toInt();
+      Serial.print("hcsr04 distance = ");
+      Serial.print(hcsr04.distanceInMillimeters());
+      Serial.println(" mm ");
+    }
+//
     else if (buf.startsWith(setValue_s)) {
       value = buf.substring(setValue_s.length()).toInt();
       Serial.print("Value set to ");
@@ -79,28 +86,25 @@ void testModules() {
 
     else if (buf.startsWith(getValue_s)) {
   /*   Serial.print("Value is ");
-      Serial.print("pinRelay is ");
-      Serial.print(pinRelay);
-       Serial.print("  Low/High is ");
       Serial.println(value);
       */
     }
 
-      Serial.println("Value is ");
-      Serial.print("pinServo is ");
+      Serial.println("\nValue is :");
+      Serial.print("        pinServo is ");
       Serial.print(pinServo);
        Serial.print("  Left/Right is ");
       Serial.println(value);
-      Serial.print("pinYFB5 is ");
+      Serial.print("        pinYFB5 is ");
       Serial.print(pinYFB5);
        Serial.print("   is ");
       Serial.println(value);
-      Serial.print("pinRelay is ");
+      Serial.print("        pinRelay is ");
       Serial.print(pinRelay);
        Serial.print("  Low/High is ");
       Serial.println(value);
 
-      menuCommands();
+      testMenuCommands();
 
   } 
 

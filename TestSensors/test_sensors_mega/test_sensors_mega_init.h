@@ -123,6 +123,7 @@ String testMenuCommands_s = "testMenuCommands";
 String i2c_s = "i2c";
 String ds18_s = "ds18";
 String hcsr04_s = "hcsr04";
+String press_s = "press";
 String setpinServo_s = "set_pinServo";
 String setpinYFB5_s = "set_pinYFB5";
 String setpinRelay_s = "set_pinRelay";
@@ -130,9 +131,10 @@ String getValue_s = "get_value";
 String setValue_s = "set_value";
 
 // переменные
-int valhcsr04;
 int valI2C;
 int valDS18;
+int valhcsr04;
+int valPress;
 int pinServo = 4;
 int pinYFB5 = 2;
 int pinRelay = 24;

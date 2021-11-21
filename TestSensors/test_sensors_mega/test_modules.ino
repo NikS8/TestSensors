@@ -15,19 +15,19 @@ void testModules() {
     if (buf.startsWith(testMenuCommands_s)) {
       testMenuCommands();
     }
-
+//
     else if (buf.startsWith(i2c_s)) {
       valI2C = buf.substring(i2c_s.length()).toInt();
       Serial.print("i2c_start ");
       test_i2cScaner();
     }
-    
+//    
     else if (buf.startsWith(ds18_s)) {
       valDS18 = buf.substring(ds18_s.length()).toInt();
       Serial.print("ds18_start ");
       test_ds18Scaner();
     }
-    
+//    
     else if (buf.startsWith(setpinServo_s)) {
       pinServo = buf.substring(setpinRelay_s.length()).toInt();
       Serial.print("pinServo is ");
@@ -37,12 +37,11 @@ void testModules() {
 
       if (value == 1)
       {
-      servoRight();
+        servoRight();
       }
-      servoLeft();
-
-      }    
-
+        servoLeft();
+    }    
+//
     else if (buf.startsWith(setpinYFB5_s)) {
       pinYFB5 = buf.substring(setpinYFB5_s.length()).toInt();
       Serial.print("setpinYFB5 set to ");
@@ -56,7 +55,7 @@ void testModules() {
         Serial.print("Flow Data TA = ");    
         Serial.println(getFlowDataTA());           
     }
-
+//
     else if (buf.startsWith(setpinRelay_s)) {
       pinRelay = buf.substring(setpinRelay_s.length()).toInt();
       Serial.print("pinRelay set to ");
@@ -66,10 +65,10 @@ void testModules() {
 
       if (value == 0)
       {
-          digitalWrite(pinRelay, LOW);    
+        digitalWrite(pinRelay, LOW);    
       }
-      digitalWrite(pinRelay, HIGH);  
-      }    
+        digitalWrite(pinRelay, HIGH);  
+    }    
 //
     else if (buf.startsWith(hcsr04_s)) {
       valhcsr04 = buf.substring(hcsr04_s.length()).toInt();
@@ -78,30 +77,57 @@ void testModules() {
       Serial.println(" mm ");
     }
 //
+    else if (buf.startsWith(press_s)) {
+      valPress = buf.substring(press_s.length()).toInt();
+     // Serial.print("press  = ");
+      Serial.print(getPressureData());
+      Serial.println(" bar ");
+    }
+//
     else if (buf.startsWith(setValue_s)) {
       value = buf.substring(setValue_s.length()).toInt();
       Serial.print("Value set to ");
       Serial.println(value);
     }
-
+//
     else if (buf.startsWith(getValue_s)) {
   /*   Serial.print("Value is ");
       Serial.println(value);
       */
     }
-
+//
       Serial.println("\nValue is :");
+            
+      Serial.print("        pinDS18 is ");
+      Serial.print("  PIN_WIRE_BUS_BD = ");
+      Serial.print(PIN_WIRE_BUS_BD);
+      Serial.print("  PIN_WIRE_BUS_BT = ");
+      Serial.print(PIN_WIRE_BUS_BT);
+      Serial.print("  PIN_WIRE_BUS_TA = ");
+      Serial.print(PIN_WIRE_BUS_TA);
+      Serial.print("  PIN_WIRE_BUS_HP = ");
+      Serial.println(PIN_WIRE_BUS_HP);
+
       Serial.print("        pinServo is ");
       Serial.print(pinServo);
-       Serial.print("  Left/Right is ");
+      Serial.print("  Left/Right is ");
       Serial.println(value);
+
       Serial.print("        pinYFB5 is ");
-      Serial.print(pinYFB5);
-       Serial.print("   is ");
-      Serial.println(value);
+      Serial.println(pinYFB5);
+
+      Serial.print("        pinHCSR04 is ");
+      Serial.print("  PIN_TRIG = ");
+      Serial.print(PIN_TRIG);
+      Serial.print("  PIN_ECHO = ");
+      Serial.println(PIN_ECHO);
+
+      Serial.print("        pinPress is ");
+      Serial.println(PIN_SENSOR_PRESSURE);
+
       Serial.print("        pinRelay is ");
       Serial.print(pinRelay);
-       Serial.print("  Low/High is ");
+      Serial.print("  Low/High is ");
       Serial.println(value);
 
       testMenuCommands();

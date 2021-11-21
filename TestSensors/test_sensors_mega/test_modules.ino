@@ -47,13 +47,16 @@ void testModules() {
       Serial.print("setpinYFB5 set to ");
       Serial.println(pinYFB5);
 
-      if (pinYFB5 == 2)
-      {
+      if (pinYFB5 == 2) {
         Serial.print("Flow Data BT = ");    
         Serial.println(getFlowDataBT());    
       }
+
+      else if (pinYFB5 == 3) {
         Serial.print("Flow Data TA = ");    
-        Serial.println(getFlowDataTA());           
+        Serial.println(getFlowDataTA());  
+      }
+
     }
 //
     else if (buf.startsWith(setpinRelay_s)) {
@@ -62,16 +65,56 @@ void testModules() {
       Serial.print(pinRelay);
       Serial.print("   is ");
       Serial.println(value);
-
-      if (value == 0)
-      {
-        digitalWrite(pinRelay, LOW);    
+     
+      if (value == 0) { 
+        digitalWrite(pinRelay, LOW);   
       }
+
+      else if (value == 1) {
         digitalWrite(pinRelay, HIGH);  
+      }
+
     }    
 //
+    else if (buf.startsWith(relay_s)) {
+      valRelay = buf.substring(relay_s.length()).toInt();
+      Serial.println("   Relay is ");
+      for (int i = 24; i < 32; i++) {
+      Serial.print("  ");
+      Serial.print(i);
+      Serial.print(" = ");
+      Serial.println(digitalRead(i));
+      }
+      
+    }    
+//
+    else if (buf.startsWith(current_s)) {
+      valCurrent = buf.substring(current_s.length()).toInt();
+      String myemon = "emon";
+      String mycur = "A";
+      Serial.println("   current is ");
+      for ( int i = 0; i < 7; i++)
+      {        
+        mycur += i;
+        i += 1;
+        myemon += i;
+      Serial.print("       ");
+      Serial.print(mycur); Serial.print(" = ");
+      Serial.println(emon1.calcIrms(1480));
+      myemon = "emon";
+      mycur = "A";
+      i -= 1;
+      }
+      
+    }
+//
+    else if (buf.startsWith(setCurrent_s)) {
+      valCurrent = buf.substring(setCurrent_s.length()).toInt();
+      getCurrentCalibration();
+    }
+//
     else if (buf.startsWith(hcsr04_s)) {
-      valhcsr04 = buf.substring(hcsr04_s.length()).toInt();
+      valHCSR04 = buf.substring(hcsr04_s.length()).toInt();
       Serial.print("hcsr04 distance = ");
       Serial.print(hcsr04.distanceInMillimeters());
       Serial.println(" mm ");
@@ -119,7 +162,7 @@ void testModules() {
       Serial.print("  PIN_WIRE_BUS_HP = ");
       Serial.println(PIN_WIRE_BUS_HP);
 
-      Serial.print("    pinServo is ");
+      Serial.print("   pinServo is ");
       Serial.print(pinServo);
       Serial.print("  Left(0)/Right(1) is ");
       Serial.println(value);
@@ -135,6 +178,9 @@ void testModules() {
 
       Serial.print("   pinPress is ");
       Serial.println(PIN_SENSOR_PRESSURE);
+
+      Serial.print("   current is ");
+      Serial.println("  A0 ... A6 ");
 
       Serial.print("   pinSpeak is ");
       Serial.print(PIN_SPEAKER);

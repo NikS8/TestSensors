@@ -22,7 +22,7 @@ speak pin D32
 //  Блок DEVICE  --------------------------------------------------------------
 //  Arduino MEGA 2560 PRO (ROBODYN)
 #define DEVICE_ID "test-sensors-mega"
-#define VERSION 1
+#define VERSION 2
 
 //  Блок libraries  -----------------------------------------------------------
 #include <Ethernet2.h>          //  httpServer (40102) pins D10,81,83,84,85
@@ -74,7 +74,8 @@ void setup() {
 void loop() {
   realTimeService();
   resetChecker();
-  serialLoop();
+
+  testModules();
   
 
 }
@@ -83,6 +84,7 @@ void loop() {
             info
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
 
+21.11.2021 v2 Интерфейс монитора порта
 19.11.2021 v1
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\

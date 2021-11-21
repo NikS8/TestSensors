@@ -32,7 +32,7 @@ void testModules() {
       pinServo = buf.substring(setpinRelay_s.length()).toInt();
       Serial.print("pinServo is ");
       Serial.print(pinServo);
-      Serial.print(" and (0 = Left or 1 = Right) Left/Right is ");
+      Serial.print(" and (0 = Left or 1 = Right) Left(0)/Right(1) is ");
       Serial.println(value);
 
       if (value == 1)
@@ -84,6 +84,17 @@ void testModules() {
       Serial.println(" bar ");
     }
 //
+    else if (buf.startsWith(setSpeak_s)) {
+      valSpeak = buf.substring(setSpeak_s.length()).toInt();
+      valSpeak = valSpeak * 1000;
+      Serial.print("Speak is ");
+      Serial.print(valSpeak);
+      Serial.println(" Hz на 3 сек");
+      tone (PIN_SPEAKER, valSpeak, 3000); //включаем на 3 сек
+    //  delay(3000); //ждем 3 сek
+      noTone(PIN_SPEAKER); // отключаем 
+    }
+//
     else if (buf.startsWith(setValue_s)) {
       value = buf.substring(setValue_s.length()).toInt();
       Serial.print("Value set to ");
@@ -96,9 +107,9 @@ void testModules() {
       */
     }
 //
-      Serial.println("\nValue is :");
+      Serial.println("\n Acting variables is :");
             
-      Serial.print("        pinDS18 is ");
+      Serial.print("   pinsDS18 is ");
       Serial.print("  PIN_WIRE_BUS_BD = ");
       Serial.print(PIN_WIRE_BUS_BD);
       Serial.print("  PIN_WIRE_BUS_BT = ");
@@ -108,26 +119,32 @@ void testModules() {
       Serial.print("  PIN_WIRE_BUS_HP = ");
       Serial.println(PIN_WIRE_BUS_HP);
 
-      Serial.print("        pinServo is ");
+      Serial.print("    pinServo is ");
       Serial.print(pinServo);
-      Serial.print("  Left/Right is ");
+      Serial.print("  Left(0)/Right(1) is ");
       Serial.println(value);
 
-      Serial.print("        pinYFB5 is ");
+      Serial.print("   pinYFB5 is ");
       Serial.println(pinYFB5);
 
-      Serial.print("        pinHCSR04 is ");
+      Serial.print("   pinsHCSR04 is ");
       Serial.print("  PIN_TRIG = ");
       Serial.print(PIN_TRIG);
       Serial.print("  PIN_ECHO = ");
       Serial.println(PIN_ECHO);
 
-      Serial.print("        pinPress is ");
+      Serial.print("   pinPress is ");
       Serial.println(PIN_SENSOR_PRESSURE);
 
-      Serial.print("        pinRelay is ");
+      Serial.print("   pinSpeak is ");
+      Serial.print(PIN_SPEAKER);
+      Serial.print("  tone ");
+      Serial.print(valSpeak);
+      Serial.println(" Hz ");
+
+      Serial.print("   pinRelay is ");
       Serial.print(pinRelay);
-      Serial.print("  Low/High is ");
+      Serial.print("  Low(0)/High(1) is ");
       Serial.println(value);
 
       testMenuCommands();

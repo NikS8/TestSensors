@@ -51,9 +51,6 @@ volatile long yfb5PulseCountBT = 0;
 unsigned long yfb5LastTimeTA;
 unsigned long yfb5LastTimeBT;
 
-//  Блок pressure  ------------------------------------------------------------
-#define PIN_SENSOR_PRESSURE A15
-
 //  Блок relay managed by http  ------------------------------------------------------------
 // relay pin 8 is free
 #define PIN_HEATER_RUN 31
@@ -113,6 +110,12 @@ Servo servo996in;
 #define PIN_SERVO_OUT 5
 Servo servo996out;
 
+//  Блок pressure  ------------------------------------------------------------
+#define PIN_SENSOR_PRESSURE A15
+
+//  Блок speaker  ------------------------------------------------------------
+#define PIN_SPEAKER 46
+
 //	Блок TIME  ----------------------------------------------------------------
 #define RESET_UPTIME_TIME 43200000  //  = 30 * 24 * 60 * 60 * 1000 
 // reset after 30 days uptime
@@ -127,6 +130,7 @@ String press_s = "press";
 String setpinServo_s = "set_pinServo";
 String setpinYFB5_s = "set_pinYFB5";
 String setpinRelay_s = "set_pinRelay";
+String setSpeak_s = "set_speak";
 String getValue_s = "get_value";
 String setValue_s = "set_value";
 
@@ -135,6 +139,7 @@ int valI2C;
 int valDS18;
 int valhcsr04;
 int valPress;
+int valSpeak = 1;
 int pinServo = 4;
 int pinYFB5 = 2;
 int pinRelay = 24;

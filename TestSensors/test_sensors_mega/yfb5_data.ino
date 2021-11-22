@@ -16,7 +16,7 @@ int getFlowDataBT() {
   return flowSensorPulsesPerSecondBT;
 }
 
-  int getFlowDataTA()
+int getFlowDataTA()
   {
   unsigned long flowSensorPulsesPerSecondTA;
   unsigned long deltaTime = millis() - yfb5LastTimeTA;

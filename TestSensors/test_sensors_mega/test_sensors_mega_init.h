@@ -51,9 +51,6 @@ volatile long yfb5PulseCountBT = 0;
 unsigned long yfb5LastTimeTA;
 unsigned long yfb5LastTimeBT;
 
-//  Блок pressure  ------------------------------------------------------------
-#define PIN_SENSOR_PRESSURE A15
-
 //  Блок relay managed by http  ------------------------------------------------------------
 // relay pin 8 is free
 #define PIN_HEATER_RUN 31
@@ -113,8 +110,44 @@ Servo servo996in;
 #define PIN_SERVO_OUT 5
 Servo servo996out;
 
+//  Блок pressure  ------------------------------------------------------------
+#define PIN_SENSOR_PRESSURE A15
+
+//  Блок speaker  ------------------------------------------------------------
+#define PIN_SPEAKER 46
+
 //	Блок TIME  ----------------------------------------------------------------
 #define RESET_UPTIME_TIME 43200000  //  = 30 * 24 * 60 * 60 * 1000 
 // reset after 30 days uptime
+
+//	Блок Тест  ----------------------------------------------------------------
+// строки текстовых команд
+String testMenuCommands_s = "testMenuCommands";
+String i2c_s = "i2c";
+String ds18_s = "ds18";
+String hcsr04_s = "hcsr04";
+String press_s = "press";
+String relay_s = "relay";
+String current_s = "current";
+String setpinServo_s = "set_pinServo";
+String setpinYFB5_s = "set_pinYFB5";
+String setpinRelay_s = "set_pinRelay";
+String setCurrent_s = "set_current";
+String setSpeak_s = "set_speak";
+String getValue_s = "get_value";
+String setValue_s = "set_value";
+
+// переменные
+int valI2C;
+int valDS18;
+int valHCSR04;
+int valPress;
+int valRelay;
+float valCurrent;
+int valSpeak = 1;
+int pinServo = 4;
+int pinYFB5 = 2;
+int pinRelay = 24;
+int value = 0;
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

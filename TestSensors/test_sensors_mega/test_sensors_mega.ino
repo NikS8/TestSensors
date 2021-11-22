@@ -1,40 +1,42 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
-                                                               boiler-down.ino
-                                        Copyright © 2018-2021, Zigfred & Nik.S
+                                                        test-sensors-mega.ino
+                                            Copyright © 2021, Zigfred & Nik.S
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\                            
   Arduino MEGA 2560 PRO:
-Скетч использует 27334 байт (10%) памяти устройства. Всего доступно 253952 байт.
-Глобальные переменные используют 1622 байт (19%) динамической памяти, 
-оставляя 6570 байт для локальных переменных. Максимум: 8192 байт.
+Скетч использует 37082 байт (14%) памяти устройства. Всего доступно 253952 байт.
+Глобальные переменные используют 3588 байт (43%) динамической памяти, 
+оставляя 4604 байт для локальных переменных. Максимум: 8192 байт.
 /*****************************************************************************\
   Сервер boiler-down выдает данные:
     аналоговые: 
 датчики трансформаторы тока (pins A1, A2, A3, A4, A5, A6, A7)
+датчик давления (pin A15)
     цифровые:
 датчик скорости потока воды YF-B5 (D2, D3)(количество импульсов за 15 сек)
 датчики температуры DS18B20 (OneWire pin D41, D42, D43)
 дальномер HC-SR04 (D22, D23)(измерение уровня воды)
 датчик положения клапана от Servo996R (pins D4,D5)
     звуковые:
-speak pin D32
+speak pin D46
 /*****************************************************************************/
 
 //  Блок DEVICE  --------------------------------------------------------------
 //  Arduino MEGA 2560 PRO (ROBODYN)
 #define DEVICE_ID "test-sensors-mega"
-#define VERSION 1
+#define VERSION 3
 
 //  Блок libraries  -----------------------------------------------------------
 #include <Ethernet2.h>          //  httpServer (40102) pins D10,81,83,84,85
-#include <Wire.h>
+#include <Wire.h>               //  test ds18
 #include <OneWire.h>            //  DS18B20 pins OneWire D41, D42, D43
 #include <DallasTemperature.h>  //  DS18B20
 #include <RBD_Timer.h>          //  DS18B20
-#include <EmonLib.h>          //  трансформаторы тока pins A1,A2,A3,A4,A5,A6,A7
-#include <hcsr04.h>           //  HC-SR04  pins D22,D23
-#include <Servo.h>            //  Servo996R pins D4,D5
-#include <EnableInterrupt.h>      //  flow YF-B5 pins D2,D3
-//                                speak pin D32
+#include <EmonLib.h>            //  трансформаторы тока pins A0 ... A7
+#include <hcsr04.h>             //  HC-SR04  pins D22,D23
+#include <Servo.h>              //  Servo996R pins D4,D5
+#include <EnableInterrupt.h>    //  flow YF-B5 pins D2,D3
+                                //  датчик давления (press) pin A15
+                                //  speak pin D46
 
 //  Блок settings  ------------------------------------------------------------
 #include "test_sensors_mega_init.h"
@@ -61,7 +63,11 @@ void setup() {
   servo996rSetup();
   relayModuleSetup();
 
-  menuTest();
+  pinMode(PIN_SPEAKER, OUTPUT);
+// test
+  testMenuCommands();
+
+//  
 
   delay (2000);
   httpServerSetup();
@@ -74,7 +80,8 @@ void setup() {
 void loop() {
   realTimeService();
   resetChecker();
-  serialLoop();
+
+  testModules();
   
 
 }
@@ -83,6 +90,8 @@ void loop() {
             info
 \*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
 
+21.11.2021 v3 Калибровка трансформаторов тока
+20.11.2021 v2 Интерфейс монитора порта
 19.11.2021 v1
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*\
